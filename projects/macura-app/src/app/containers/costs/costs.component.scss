@@ -1,0 +1,24 @@
+.costs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "costs-name currency-selector calculated-value"
+  "expenses-table expenses-table expenses-table";
+
+  .costs-name {
+    grid-area: costs-name;
+  }
+
+  .currency-selector {
+    grid-area: currency-selector;
+  }
+
+  .calculated-value {
+    grid-area: calculated-value;
+  }
+
+  .expenses-table {
+    grid-area: expenses-table;
+  }
+}
