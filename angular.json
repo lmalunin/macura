@@ -3,5 +3,140 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "macura-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/macura-app",
+      "sourceRoot": "projects/macura-app/src",
+      "prefix": "mc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/macura-app",
+            "index": "projects/macura-app/src/index.html",
+            "main": "projects/macura-app/src/main.ts",
+            "polyfills": "projects/macura-app/src/polyfills.ts",
+            "tsConfig": "projects/macura-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/macura-app/src/favicon.ico",
+              "projects/macura-app/src/assets"
+            ],
+            "styles": [
+              "projects/macura-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/macura-app/src/environments/environment.ts",
+                  "with": "projects/macura-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "macura-app:build:production"
+            },
+            "development": {
+              "browserTarget": "macura-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "macura-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/macura-app/src/test.ts",
+            "polyfills": "projects/macura-app/src/polyfills.ts",
+            "tsConfig": "projects/macura-app/tsconfig.spec.json",
+            "karmaConfig": "projects/macura-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/macura-app/src/favicon.ico",
+              "projects/macura-app/src/assets"
+            ],
+            "styles": [
+              "projects/macura-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "macura-lib": {
+      "projectType": "library",
+      "root": "projects/macura-lib",
+      "sourceRoot": "projects/macura-lib/src",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/macura-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/macura-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/macura-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/macura-lib/src/test.ts",
+            "tsConfig": "projects/macura-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/macura-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "macura-app"
 }

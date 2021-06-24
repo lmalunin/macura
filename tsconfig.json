@@ -9,6 +9,16 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "macura-lib": [
+        "dist/macura-lib/macura-lib",
+        "dist/macura-lib"
+      ],
+      "mc-lib": [
+        "dist/mc-lib/mc-lib",
+        "dist/mc-lib"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
