@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CostsModel, ICostsModel } from './models';
+import { CostsModel, ICostsModel } from '../../models';
 
 @Component({
     selector: 'macura-costs',

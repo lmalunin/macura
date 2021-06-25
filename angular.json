@@ -145,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "macura-app"
+  "defaultProject": "macura-app",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
