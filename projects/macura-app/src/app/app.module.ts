@@ -10,17 +10,11 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CostsComponent } from './containers/costs/costs.component';
-import { CostsResolver } from './containers/costs/resolvers/costs.resolver';
-import { CostsServices } from './containers/costs/services/costs.services';
-import { ExpenseComponent } from './containers/expense/expense.component';
 import { metaReducers, reducers } from './reducers';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CostsComponent,
-        ExpenseComponent
     ],
     imports: [
         BrowserModule,
@@ -35,7 +29,7 @@ import { metaReducers, reducers } from './reducers';
         /*Macura libs*/
         MacuraLibModule,
     ],
-    providers: [CostsServices, CostsResolver],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
