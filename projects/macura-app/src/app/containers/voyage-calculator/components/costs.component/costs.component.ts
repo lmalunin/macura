@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,8 @@ import { VoyageCalculatorState } from '../../store/reducers';
 @Component({
     selector: 'macura-costs',
     templateUrl: './costs.component.html',
-    styleUrls: ['./costs.component.scss']
+    styleUrls: ['./costs.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CostsComponent implements OnInit {
 
@@ -18,12 +19,9 @@ export class CostsComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, private store: Store<VoyageCalculatorState>) {
 
-        route.data.subscribe(
-            data => {
-                debugger
-                this.costs = data['costs']
-            }
-        );
+        store.subscribe(value => {
+            this.costs = value.costs;
+        })
     }
 
     ngOnInit(): void {

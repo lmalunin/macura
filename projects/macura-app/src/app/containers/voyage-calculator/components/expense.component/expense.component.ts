@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'macura-expense',
-  templateUrl: './expense.component.html',
-  styleUrls: ['./expense.component.scss']
+    selector: 'macura-expense',
+    templateUrl: './expense.component.html',
+    styleUrls: ['./expense.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpenseComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }
