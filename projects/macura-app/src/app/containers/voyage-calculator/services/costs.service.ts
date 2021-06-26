@@ -19,12 +19,12 @@ export class CostsServices {
         return this.http.get<ICostsModel>(`api/costs/`)
             .pipe(
                 shareReplay(),
-                map((resonse: ICostsModel) => {
-                    console.log('costs: %o', resonse);
+                map((response: ICostsModel) => {
+                    console.log('costs: %o', response);
 
-                    this.store.dispatch(loadCostsSuccess({ data: resonse }));
+                    this.store.dispatch(loadCostsSuccess({ data: response }));
 
-                    return resonse;
+                    return response;
                 }),
                 catchError((err, caught) => {
 

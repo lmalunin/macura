@@ -4,7 +4,7 @@ import { CostsComponent } from './components/costs.component/costs.component';
 import { CostsResolver } from './resolvers';
 
 const routes: Routes = [
-    { path: '', component: CostsComponent, resolve: { item: CostsResolver } }
+    { path: '', component: CostsComponent, resolve: { costs: CostsResolver } }
 ];
 
 @NgModule({

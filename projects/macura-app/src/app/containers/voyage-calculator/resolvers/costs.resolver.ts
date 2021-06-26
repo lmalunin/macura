@@ -3,18 +3,15 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ICostsModel } from '../models';
-import { CostsServices } from '../services';
+import { CostsServices } from '../services/costs.service';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class CostsResolver implements Resolve<ICostsModel> {
 
     constructor(private costsService: CostsServices, private store: Store) {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ICostsModel> {
-        debugger
         return this.costsService.fetchAll();
     }
 

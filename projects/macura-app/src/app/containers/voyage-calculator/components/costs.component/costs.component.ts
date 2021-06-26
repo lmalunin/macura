@@ -19,7 +19,10 @@ export class CostsComponent implements OnInit {
     constructor(private route: ActivatedRoute, private store: Store<VoyageCalculatorState>) {
 
         route.data.subscribe(
-            data => this.costs = data['costs']
+            data => {
+                debugger
+                this.costs = data['costs']
+            }
         );
     }
 

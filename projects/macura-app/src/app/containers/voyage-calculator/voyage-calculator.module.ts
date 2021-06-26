@@ -5,7 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { CostsComponent } from './components/costs.component/costs.component';
 import { ExpenseComponent } from './components/expense.component/expense.component';
 import { CostsResolver } from './resolvers';
-import { CostsServices } from './services';
+import { CostsServices } from './services/costs.service';
+import { ExchangeRateService } from './services/exchange-rate.service';
 import * as fromVoyageCalculator from './store/reducers';
 
 import { VoyageCalculatorRoutingModule } from './voyage-calculator-routing.module';
@@ -23,7 +24,7 @@ const COMPONENTS = [
         VoyageCalculatorRoutingModule,
         StoreModule.forFeature(fromVoyageCalculator.voyageCalculatorFeatureKey, fromVoyageCalculator.reducers, { metaReducers: fromVoyageCalculator.metaReducers })
     ],
-    providers: [CostsServices, CostsResolver]
+    providers: [CostsServices, ExchangeRateService, CostsResolver]
 })
 export class VoyageCalculatorModule {
 }
