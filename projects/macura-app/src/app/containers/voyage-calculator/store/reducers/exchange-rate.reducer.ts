@@ -11,7 +11,6 @@ export const initialState: IExchangeRatesModel = {
 export const reducer = createReducer<IExchangeRatesModel>(
     initialState,
     on(exchangeRateActions.loadExchangeRatesSuccess, (state, action) => {
-        debugger;
         return { ...state, ...{ exchangeRates: action.data } }
     }),
 );
