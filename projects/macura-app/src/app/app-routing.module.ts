@@ -5,7 +5,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'costs', pathMatch: 'full' },
     {
         path: 'costs',
-        loadChildren: () => import('./containers/voyage-calculator/voyage-calculator.module').then(m => m.VoyageCalculatorModule)
+        loadChildren: () => import('./containers/voyage-calculator/voyage-calculator.module').then(m => m.VoyageCalculatorModule),
     }
 ];
 

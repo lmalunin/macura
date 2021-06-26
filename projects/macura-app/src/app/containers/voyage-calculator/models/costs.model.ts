@@ -1,14 +1,14 @@
 import { ICostItemModel } from './cost-item.model';
 
 interface ICostsModel {
-    daCurrency: {
+    daCurrency?: {
         currency: string
     },
-    baseCurrency: {
+    baseCurrency?: {
         "currency": string,
         "exchangeRate": number
     },
-    costs: Array<{
+    costs?: Array<{
         id: number,
         name: string,
         displayOrder: number,

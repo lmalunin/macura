@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { CostsModel, ICostsModel } from '../../models';
-import { VoyageCalculatorState } from '../../reducers';
+import { VoyageCalculatorState } from '../../store/reducers';
+
 
 @UntilDestroy({ checkProperties: true })
 @Component({
