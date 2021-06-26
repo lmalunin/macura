@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { DropdownModule } from 'primeng/dropdown';
 import { CostsComponent } from './components/costs.component/costs.component';
@@ -26,7 +27,8 @@ const COMPONENTS = [
         HttpClientModule,
         VoyageCalculatorRoutingModule,
         StoreModule.forFeature(fromVoyageCalculator.voyageCalculatorFeatureKey, fromVoyageCalculator.reducers, { metaReducers: fromVoyageCalculator.metaReducers }),
-        DropdownModule
+        DropdownModule,
+        FormsModule
     ],
     providers: [CostsServices, ExchangeRateService, CostsResolver, ExchangeRatesResolver]
 })

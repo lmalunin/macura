@@ -1,4 +1,12 @@
-import * as fromCostsSelectors from './costs.selector.ts.selectors';
-import * as fromExchangeRatesSelectors from './exchange-rate.selector.ts.selectors';
+import { createFeatureSelector } from '@ngrx/store';
+import { VoyageCalculatorState } from '../reducers';
+import * as fromCostsSelectors from './costs.selectors';
+import * as fromExchangeRatesSelectors from './exchange-rate.selectors';
 
-export { fromCostsSelectors, fromExchangeRatesSelectors };
+const selectGlobalState = createFeatureSelector<VoyageCalculatorState>("voyageCalculator");
+
+export {
+    selectGlobalState,
+    fromCostsSelectors,
+    fromExchangeRatesSelectors
+};

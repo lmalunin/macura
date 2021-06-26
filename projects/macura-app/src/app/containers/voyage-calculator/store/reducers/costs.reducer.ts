@@ -12,7 +12,13 @@ export const initialState: ICostsModel = {
 export const reducer = createReducer<ICostsModel>(
     initialState,
     on(costsActions.loadCostsSuccess, (state, action) => {
-        return { ...state, ...{ cost: action.data } }
+        return {
+            ...state, ...{
+                costs: action.data.costs,
+                baseCurrency: action.data.baseCurrency,
+                daCurrency: action.data.daCurrency
+            }
+        }
     }),
 );
 

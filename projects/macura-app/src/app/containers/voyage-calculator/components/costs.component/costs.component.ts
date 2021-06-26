@@ -4,7 +4,6 @@ import { UntilDestroy } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { CostsModel, ICostsModel } from '../../models';
 import { ExchangeRatesModel, IExchangeRatesModel } from '../../models/exhange-rate.model';
-import { VoyageCalculatorState } from '../../store/reducers';
 
 
 @UntilDestroy({ checkProperties: true })
@@ -19,15 +18,22 @@ export class CostsComponent implements OnInit {
     costs: ICostsModel = new CostsModel();
     exchangeRates: IExchangeRatesModel = new ExchangeRatesModel();
 
-    constructor(private route: ActivatedRoute, private store: Store<VoyageCalculatorState>) {
+    // costs$: Observable<ICostsModel> = this.store.pipe(select(fromCostsSelectors.selectAll));
+    // exchangeRates$: Observable<IExchangeRatesModel> = this.store.pipe(select(fromExchangeRatesSelectors.selectAll));
+
+    selectedRate: any = null;
+
+
+    constructor(private route: ActivatedRoute, private store: Store<any>) {
     }
 
     ngOnInit(): void {
 
         this.store.subscribe(value => {
-            this.costs = value.costs;
-            this.exchangeRates = value.exchangeRates;
-            debugger;
+            this.costs = value['voyageCalculator'].costs;
+            this.exchangeRates = value['voyageCalculator'].exchangeRates;
+
+            this.selectedRate = this.exchangeRates.paymentCurrencies?.find(item => item?.toCurrency == this.exchangeRates.sourceCurrency);
         })
     }
 
