@@ -1,19 +1,32 @@
-<p-table [value]="[]">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Port Expenses</th>
-            <th>Account Code</th>
-            <th>Quoted</th>
-            <th>Screened</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body"
-                 let-car>
-        <tr>
-            <td>{{car.vin}}</td>
-            <td>{{car.year}}</td>
-            <td>{{car.brand}}</td>
-            <td>{{car.color}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+<div *ngFor="let item of costs.costs">
+    <p-table [value]="item.costItems">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{item?.name}}</th>
+                <th>Account Code</th>
+                <th>Quoted</th>
+                <th>Screened</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+                     let-costItemBody>
+            <tr>
+                <td>{{costItemBody.name}}</td>
+                <td>{{costItemBody?.costItemAlias?.accountingCode}}</td>
+                <td>
+                    <div>SDG {{costItemBody?.costs[0].amount}}</div>
+                    <div>{{this.selectedRate.toCurrency}} {{ costItemBody?.costs[0].amount * selectedRate.exchangeRate}}</div>
+                </td>
+                <td>
+                    <div>
+                        <p-inputNumber #inputAmount
+                                       [(ngModel)]="costItemBody?.costs[1].amount "></p-inputNumber>
+                    </div>
+                    <div *ngIf="inputAmount.value">{{inputAmount.value * selectedRate.exchangeRate}}</div>
+                </td>
+                <td>comments icon</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

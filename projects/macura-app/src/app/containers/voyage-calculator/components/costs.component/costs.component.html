@@ -11,7 +11,7 @@
     </div>
     <div class="calculated-value">1 {{selectedRate.toCurrency}} = {{baseCourse}} {{selectedRate.fromCurrency}}</div>
     <div class="expenses-table">
-        <macura-expense></macura-expense>
+        <macura-expense [selectedRate]="selectedRate"></macura-expense>
     </div>
 </div>
 

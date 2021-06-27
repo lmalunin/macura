@@ -1,7 +1,7 @@
 .costs-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 5vw 1fr;
   grid-template-areas:
   "costs-name currency-selector calculated-value"
   "expenses-table expenses-table expenses-table";

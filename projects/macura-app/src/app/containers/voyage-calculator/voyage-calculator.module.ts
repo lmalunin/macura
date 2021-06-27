@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MacuraLibModule } from 'macura-lib';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule } from 'primeng/table';
 import { CostsComponent } from './components/costs.component/costs.component';
@@ -38,6 +39,7 @@ const COMPONENTS = [
         DropdownModule,
         TableModule,
         ProgressSpinnerModule,
+        InputNumberModule,
         MacuraLibModule
     ],
     providers: [CostsServices, ExchangeRateService, CostsResolver, ExchangeRatesResolver]
