@@ -29,7 +29,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "types": ["@types/jest", "@types/node", "@types/mocha", "jest"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

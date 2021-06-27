@@ -4,11 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { IExchangeRatesModel } from '../models/exhange-rate.model';
-import {
-    loadExchangeRates,
-    loadExchangeRatesFailure,
-    loadExchangeRatesSuccess
-} from '../store/actions/exchange-rate.actions';
+import { loadExchangeRatesFailure, loadExchangeRatesSuccess } from '../store/actions/exchange-rate.actions';
 
 @Injectable()
 export class ExchangeRateService {
@@ -17,8 +13,6 @@ export class ExchangeRateService {
     }
 
     fetchAll(): Observable<IExchangeRatesModel> {
-
-        this.store.dispatch(loadExchangeRates());
 
         return this.http.get<IExchangeRatesModel>(`api/exchangeRates/`)
             .pipe(

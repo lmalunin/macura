@@ -6,7 +6,11 @@ import { MacuraLibService } from 'macura-lib';
 import { Observable } from 'rxjs';
 import { CostsModel, ICostsModel } from '../../models';
 import { ExchangeRatesModel, IExchangeRatesModel } from '../../models/exhange-rate.model';
-import { fromCostsSelectors, fromExchangeRatesSelectors } from '../../store/selectors';
+import {
+    fromCostsSelectors,
+    fromExchangeRatesSelectors,
+    fromVoyageCalculatorCommonPending
+} from '../../store/selectors';
 
 
 @UntilDestroy({ checkProperties: true })
@@ -23,6 +27,8 @@ export class CostsComponent implements OnInit {
 
     costs$: Observable<ICostsModel> = this.store.pipe(select(fromCostsSelectors.selectAll));
     exchangeRates$: Observable<IExchangeRatesModel> = this.store.pipe(select(fromExchangeRatesSelectors.selectAll));
+
+    spinnerVisibility$: Observable<boolean> = this.store.pipe(select(fromVoyageCalculatorCommonPending));
 
     selectedRate: { fromCurrency: string, toCurrency: string, exchangeRate: number } = {
         exchangeRate: 0,
@@ -53,14 +59,9 @@ export class CostsComponent implements OnInit {
             }
         )
 
-        // this.store.subscribe(value => {
-        //     this.costs = value['voyageCalculator'].costs;
-        //     this.exchangeRates = value['voyageCalculator'].exchangeRates;
-        //
-        //     this.selectedRate = this.exchangeRates.paymentCurrencies?.find(item => item?.toCurrency == this.exchangeRates.sourceCurrency)!;
-        //
-        //     this.baseCourse = this.macuraLibService.currencyCalculator(1, this.selectedRate.exchangeRate);
-        // })
+        this.spinnerVisibility$.subscribe(value => {
+            console.log('Spinner', value);
+        })
     }
 
     calculateRate(selectedItem: { fromCurrency: string, toCurrency: string, exchangeRate: number }, currencyAmount: number) {

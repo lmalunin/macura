@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { IExchangeRatesModel } from '../../models/exhange-rate.model';
-import { exchangeRateActions } from '../actions';
+import { fromExchangeRateActions } from '../actions';
 
 
 export const initialState: IExchangeRatesModel = {
@@ -10,7 +10,7 @@ export const initialState: IExchangeRatesModel = {
 
 export const reducer = createReducer<IExchangeRatesModel>(
     initialState,
-    on(exchangeRateActions.loadExchangeRatesSuccess, (state, action) => {
+    on(fromExchangeRateActions.loadExchangeRatesSuccess, (state, action) => {
         return {
             ...state, ...{
                 paymentCurrencies: action.data.paymentCurrencies,

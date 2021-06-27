@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ICostsModel } from '../models';
-import { loadCosts, loadCostsFailure, loadCostsSuccess } from '../store/actions/costs.actions';
+import { loadCostsFailure, loadCostsSuccess } from '../store/actions/costs.actions';
 
 @Injectable()
 export class CostsServices {
@@ -14,14 +14,11 @@ export class CostsServices {
 
     fetchAll(): Observable<ICostsModel> {
 
-        this.store.dispatch(loadCosts());
-
         return this.http.get<ICostsModel>(`api/costs/`)
             .pipe(
                 shareReplay(),
                 map((response: ICostsModel) => {
                     console.log('costs: %o', response);
-
                     this.store.dispatch(loadCostsSuccess({ data: response }));
 
                     return response;

@@ -1,4 +1,4 @@
-import * as costsActions from './costs.actions';
-import * as exchangeRateActions from './exchange-rate.actions';
+import * as fromCostsActions from './costs.actions';
+import * as fromExchangeRateActions from './exchange-rate.actions';
 
-export { costsActions, exchangeRateActions };
+export { fromCostsActions, fromExchangeRateActions };

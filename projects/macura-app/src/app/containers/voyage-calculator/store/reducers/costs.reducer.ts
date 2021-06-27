@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { ICostsModel } from '../../models';
-import { costsActions } from '../actions';
+import { fromCostsActions } from '../actions';
 
 
 export const initialState: ICostsModel = {
@@ -11,7 +11,7 @@ export const initialState: ICostsModel = {
 
 export const reducer = createReducer<ICostsModel>(
     initialState,
-    on(costsActions.loadCostsSuccess, (state, action) => {
+    on(fromCostsActions.loadCostsSuccess, (state, action) => {
         return {
             ...state, ...{
                 costs: action.data.costs,
