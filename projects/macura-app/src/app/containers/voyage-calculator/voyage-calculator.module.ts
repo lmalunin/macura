@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MacuraLibModule } from 'macura-lib';
+import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule } from 'primeng/table';
+import { CommentsComponent } from './components/comments/comments.component';
 import { CostsComponent } from './components/costs.component/costs.component';
 import { ExpenseComponent } from './components/expense.component/expense.component';
 import { CostsResolver } from './resolvers';
@@ -25,6 +27,7 @@ import { VoyageCalculatorRoutingModule } from './voyage-calculator-routing.modul
 const COMPONENTS = [
     CostsComponent,
     ExpenseComponent,
+    CommentsComponent,
 ];
 
 @NgModule({
@@ -40,6 +43,7 @@ const COMPONENTS = [
         TableModule,
         ProgressSpinnerModule,
         InputNumberModule,
+        ButtonModule,
         MacuraLibModule
     ],
     providers: [CostsServices, ExchangeRateService, CostsResolver, ExchangeRatesResolver]
