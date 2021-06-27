@@ -4,11 +4,11 @@
              [autoLayout]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th [ngStyle]="{'width':'300px'}">{{item?.name}}</th>
-                <th>Account Code</th>
-                <th>Quoted</th>
-                <th>Screened</th>
-                <th></th>
+                <th [style]="getTheadStyles()">{{item?.name}}</th>
+                <th [style]="getTheadStyles()">Account Code</th>
+                <th [style]="getTheadStyles()">Quoted</th>
+                <th [style]="getTheadStyles()">Screened</th>
+                <th [style]="getTheadStyles()"></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body"
@@ -33,6 +33,26 @@
                        style="cursor: pointer"
                        [pRowToggler]="costItemBody"></i>
                     {{costItemBody?.comments?.length ? costItemBody?.comments?.length : 0 }}
+                </td>
+            </tr>
+        </ng-template>
+
+        <!--todo: finish summary-->
+        <ng-template pTemplate="summary"
+                     let-costItemSummary>
+            <tr class="summary">
+                <td class="total">Total</td>
+                <td class="quoted">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </td>
+                <td class="screened">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
                 </td>
             </tr>
         </ng-template>

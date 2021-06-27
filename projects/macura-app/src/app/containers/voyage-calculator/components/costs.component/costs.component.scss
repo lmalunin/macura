@@ -1,6 +1,9 @@
 .costs-wrapper {
+
+  margin: 10px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 15vw 10vw;
   grid-template-rows: 5vw 1fr;
   grid-template-areas:
   "costs-name currency-selector calculated-value"
@@ -8,19 +11,24 @@
 
   .costs-name {
     grid-area: costs-name;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1A7FAD;
+    margin: 10px 0 0 0;
   }
 
   .currency-selector {
     grid-area: currency-selector;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 5vw 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:
     "currency-title currency-ddl";
 
     .currency-title {
       grid-area: currency-title;
+      margin: 10px 0 0 0;
     }
 
     .currency-ddl {
@@ -30,6 +38,7 @@
 
   .calculated-value {
     grid-area: calculated-value;
+    margin: 10px 0 0 0;
   }
 
   .expenses-table {

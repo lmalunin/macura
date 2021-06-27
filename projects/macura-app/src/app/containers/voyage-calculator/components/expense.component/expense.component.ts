@@ -40,4 +40,10 @@ export class ExpenseComponent implements OnInit {
         })
     }
 
+    getTheadStyles() {
+        return {
+            width: '300px',
+            backgroundColor: '#1A7FAD'
+        }
+    }
 }

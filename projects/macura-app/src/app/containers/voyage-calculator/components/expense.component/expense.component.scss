@@ -1,0 +1,65 @@
+.summary {
+  display: grid;
+  grid-template-columns: 39vw 20vw 10vw;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "total quoted screened";
+
+  .total {
+    grid-area: total;
+  }
+
+  .quoted {
+    grid-area: quoted;
+
+    display: grid;
+    grid-template-columns: 2vw 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "currencyTitle1 currency1 "
+    "currencyTitle2 currency2";
+
+    .currencyTitle1 {
+      grid-area: currencyTitle1;
+    }
+
+    .currency1 {
+      grid-area: currency1;
+    }
+
+    .currencyTitle2 {
+      grid-area: currencyTitle2;
+    }
+
+    .currency2 {
+      grid-area: currency2;
+    }
+  }
+
+  .screened {
+    grid-area: screened;
+
+    display: grid;
+    grid-template-columns: 2vw 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "currencyTitle1 currency1 "
+    "currencyTitle2 currency2";
+
+    .currencyTitle1 {
+      grid-area: currencyTitle1;
+    }
+
+    .currency1 {
+      grid-area: currency1;
+    }
+
+    .currencyTitle2 {
+      grid-area: currencyTitle2;
+    }
+
+    .currency2 {
+      grid-area: currency2;
+    }
+  }
+}

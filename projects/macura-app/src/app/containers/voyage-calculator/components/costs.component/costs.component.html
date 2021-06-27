@@ -6,7 +6,8 @@
             <p-dropdown [options]="exchangeRates?.paymentCurrencies!"
                         [ngModel]="selectedRate"
                         (ngModelChange)="calculateRate($event, 1)"
-                        optionLabel="toCurrency"></p-dropdown>
+                        optionLabel="toCurrency">
+            </p-dropdown>
         </div>
     </div>
     <div class="calculated-value">1 {{selectedRate.toCurrency}}
