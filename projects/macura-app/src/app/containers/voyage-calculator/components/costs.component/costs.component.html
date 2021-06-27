@@ -4,10 +4,13 @@
         <div>Currency</div>
         <div>
             <p-dropdown [options]="exchangeRates?.paymentCurrencies!"
-                        [(ngModel)]="selectedRate"
+                        [ngModel]="selectedRate"
+                        (ngModelChange)="calculateRate($event, 1)"
                         optionLabel="toCurrency"></p-dropdown>
         </div>
     </div>
-    <div class="calculated-value">1 USD =</div>
-    <div class="expenses-table">4</div>
+    <div class="calculated-value">1 {{selectedRate.toCurrency}} = {{baseCourse}} {{selectedRate.fromCurrency}}</div>
+    <div class="expenses-table">
+        <macura-expense></macura-expense>
+    </div>
 </div>

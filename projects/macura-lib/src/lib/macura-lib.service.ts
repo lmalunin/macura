@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class MacuraLibService {
 
-  constructor() { }
+    constructor() {
+    }
+
+    currencyCalculator(currencyAmount: number, exchangeRate: number): number {
+        return currencyAmount / exchangeRate;
+    }
 }

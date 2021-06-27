@@ -8,6 +8,16 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class ExpenseComponent implements OnInit {
 
+    // _selectedRate: { fromCurrency: string; toCurrency: string; exchangeRate: number; } | undefined;
+    //
+    // get selectedRate(): { fromCurrency: string, toCurrency: string, exchangeRate: number } {
+    //     return this._selectedRate!;
+    // }
+    //
+    // @Input() set selectedRate(value: { fromCurrency: string, toCurrency: string, exchangeRate: number }) {
+    //     this._selectedRate = value;
+    // }
+
     constructor() {
     }
 

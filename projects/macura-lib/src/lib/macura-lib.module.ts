@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MacuraLibComponent } from './macura-lib.component';
-
+import { MacuraLibService } from './macura-lib.service';
 
 
 @NgModule({
-  declarations: [
-    MacuraLibComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    MacuraLibComponent
-  ]
+    declarations: [],
+    imports: [],
+    exports: [],
+    providers: [MacuraLibService]
 })
-export class MacuraLibModule { }
+export class MacuraLibModule {
+}

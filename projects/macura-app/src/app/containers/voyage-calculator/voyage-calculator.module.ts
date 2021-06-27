@@ -3,7 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { MacuraLibModule } from 'macura-lib';
 import { DropdownModule } from 'primeng/dropdown';
+import { TableModule } from 'primeng/table';
 import { CostsComponent } from './components/costs.component/costs.component';
 import { ExpenseComponent } from './components/expense.component/expense.component';
 import { CostsResolver } from './resolvers';
@@ -25,10 +27,12 @@ const COMPONENTS = [
     imports: [
         CommonModule,
         HttpClientModule,
+        FormsModule,
         VoyageCalculatorRoutingModule,
         StoreModule.forFeature(fromVoyageCalculator.voyageCalculatorFeatureKey, fromVoyageCalculator.reducers, { metaReducers: fromVoyageCalculator.metaReducers }),
         DropdownModule,
-        FormsModule
+        TableModule,
+        MacuraLibModule
     ],
     providers: [CostsServices, ExchangeRateService, CostsResolver, ExchangeRatesResolver]
 })
