@@ -1,10 +1,10 @@
 <div *ngFor="let item of costs.costs">
     <p-table [value]="item.costItems"
-             dataKey="id">
+             dataKey="id"
+             [autoLayout]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width: 3rem"></th>
-                <th>{{item?.name}}</th>
+                <th [ngStyle]="{'width':'300px'}">{{item?.name}}</th>
                 <th>Account Code</th>
                 <th>Quoted</th>
                 <th>Screened</th>
@@ -15,15 +15,7 @@
                      let-costItemBody
                      let-expanded="expanded">
             <tr>
-                <td>
-                    <button type="button"
-                            pButton
-                            pRipple
-                            [pRowToggler]="costItemBody"
-                            class="p-button-text p-button-rounded p-button-plain"
-                            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-                </td>
-                <td>{{costItemBody.name}}</td>
+                <td [ngStyle]="{'width':'100px'}">{{costItemBody.name}}</td>
                 <td>{{costItemBody?.costItemAlias?.accountingCode}}</td>
                 <td>
                     <div>SDG {{costItemBody?.costs[0].amount}}</div>
@@ -37,10 +29,10 @@
                     <div *ngIf="inputAmount.value">{{inputAmount.value * selectedRate.exchangeRate}}</div>
                 </td>
                 <td>
-                    <ng-container *ngIf="costItemBody?.comments?.length">
-                        <i class="pi pi-comment"></i>
-                        {{costItemBody?.comments?.length}}
-                    </ng-container>
+                    <i class="pi pi-comment"
+                       style="cursor: pointer"
+                       [pRowToggler]="costItemBody"></i>
+                    {{costItemBody?.comments?.length ? costItemBody?.comments?.length : 0 }}
                 </td>
             </tr>
         </ng-template>
@@ -50,7 +42,6 @@
             <tr>
                 <td colspan="7">
                     <div class="p-p-3">
-
                         <macura-comments [comments]="commentsBody.comments"></macura-comments>
                     </div>
                 </td>
