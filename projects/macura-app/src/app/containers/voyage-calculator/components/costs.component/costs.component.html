@@ -1,15 +1,16 @@
 <div class="costs-wrapper">
     <div class="costs-name">Costs</div>
     <div class="currency-selector">
-        <div>Currency</div>
-        <div>
+        <div class="currency-title">Currency</div>
+        <div class="currency-ddl">
             <p-dropdown [options]="exchangeRates?.paymentCurrencies!"
                         [ngModel]="selectedRate"
                         (ngModelChange)="calculateRate($event, 1)"
                         optionLabel="toCurrency"></p-dropdown>
         </div>
     </div>
-    <div class="calculated-value">1 {{selectedRate.toCurrency}} = {{baseCourse}} {{selectedRate.fromCurrency}}</div>
+    <div class="calculated-value">1 {{selectedRate.toCurrency}}
+        = {{baseCourse | number:'1.2-2'}} {{selectedRate.fromCurrency}}</div>
     <div class="expenses-table">
         <macura-expense [selectedRate]="selectedRate"></macura-expense>
     </div>

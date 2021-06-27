@@ -19,14 +19,14 @@
                 <td>{{costItemBody?.costItemAlias?.accountingCode}}</td>
                 <td>
                     <div>SDG {{costItemBody?.costs[0].amount}}</div>
-                    <div>{{this.selectedRate.toCurrency}} {{ costItemBody?.costs[0].amount * selectedRate.exchangeRate}}</div>
+                    <div>{{this.selectedRate.toCurrency}} {{ costItemBody?.costs[0].amount * selectedRate.exchangeRate }}</div>
                 </td>
                 <td>
                     <div>
                         <p-inputNumber #inputAmount
                                        [(ngModel)]="costItemBody?.costs[1].amount "></p-inputNumber>
                     </div>
-                    <div *ngIf="inputAmount.value">{{inputAmount.value * selectedRate.exchangeRate}}</div>
+                    <div *ngIf="inputAmount.value">{{inputAmount.value * selectedRate.exchangeRate | number:'1.2-2'}}</div>
                 </td>
                 <td>
                     <i class="pi pi-comment"
@@ -46,7 +46,6 @@
                     </div>
                 </td>
             </tr>
-
         </ng-template>
 
 

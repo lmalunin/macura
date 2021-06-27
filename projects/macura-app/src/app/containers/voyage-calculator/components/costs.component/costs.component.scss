@@ -12,6 +12,20 @@
 
   .currency-selector {
     grid-area: currency-selector;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "currency-title currency-ddl";
+
+    .currency-title {
+      grid-area: currency-title;
+    }
+
+    .currency-ddl {
+      grid-area: currency-ddl;
+    }
   }
 
   .calculated-value {
