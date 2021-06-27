@@ -34,7 +34,7 @@ const COMPONENTS = [
         FormsModule,
         VoyageCalculatorRoutingModule,
         StoreModule.forFeature(fromVoyageCalculator.voyageCalculatorFeatureKey, fromVoyageCalculator.reducers, { metaReducers: fromVoyageCalculator.metaReducers }),
-        EffectsModule.forFeature([fromCostEffects.CoctsEffectEffects]),
+        EffectsModule.forFeature([fromCostEffects.CostsEffects]),
         DropdownModule,
         TableModule,
         ProgressSpinnerModule,

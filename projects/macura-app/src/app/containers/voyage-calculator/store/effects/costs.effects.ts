@@ -4,7 +4,7 @@ import { fromCostsServices } from '../../services';
 
 
 @Injectable()
-export class CoctsEffectEffects {
+export class CostsEffects {
 
     /*No need because url resolver*/
     // costsLoad$ = createEffect(() =>

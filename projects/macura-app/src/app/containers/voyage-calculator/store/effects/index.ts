@@ -1,3 +1,3 @@
-import * as fromCostEffects from './cocts-effect.effects';
+import * as fromCostEffects from './costs.effects';
 
 export { fromCostEffects }
